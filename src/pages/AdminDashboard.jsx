@@ -338,11 +338,11 @@ const AdminDashboard = () => {
       <main className="max-w-7xl mx-auto py-[16px] px-[18px]">
         
         {/* Outer Dashboard Wrapper */}
-        <div className="bg-white/30 backdrop-blur-xs rounded-[var(--border-radius-lg)] border border-gold/10 p-6 shadow-xs">
+        <div className="bg-white/30 backdrop-blur-xs rounded-[var(--border-radius-lg)] border border-gold/10 p-4 sm:p-6 shadow-xs">
           
           {/* Today Summary Bar */}
           <div className="bg-white rounded-lg border border-gold/10 py-[8px] px-[20px] mb-6 flex flex-wrap items-center justify-between gap-[12px] text-[11px] text-charcoal">
-            <div className="flex items-center gap-[12px]">
+            <div className="flex flex-wrap items-center gap-[12px]">
               <span className="font-bold text-burgundy">📅 Today Summary</span>
               <span className="opacity-30">|</span>
               <span>New Enquiries: <strong className="text-burgundy">{todaySummary.todayEnquiries}</strong></span>
@@ -390,10 +390,10 @@ const AdminDashboard = () => {
           <section className="grid grid-cols-2 md:grid-cols-5 gap-[10px] mb-[18px]">
             
             {/* Total */}
-            <div className="bg-white rounded-xl shadow-sm border border-gold/10 border-l-[3px] border-l-burgundy py-[14px] px-[16px] flex flex-col justify-between">
+            <div className="bg-white rounded-xl shadow-sm border border-gold/10 border-l-[3px] border-l-burgundy py-3 px-3.5 sm:py-[14px] sm:px-[16px] flex flex-col justify-between">
               <span className="text-xs font-bold text-charcoal-light uppercase tracking-wider">Total</span>
               <div className="flex items-baseline gap-2 mt-[4px]">
-                <span className="text-[28px] font-medium text-burgundy font-display leading-tight">{totalCount}</span>
+                <span className="text-2xl sm:text-[28px] font-medium text-burgundy font-display leading-tight">{totalCount}</span>
                 <span className="text-xs text-charcoal-light">enquiries</span>
               </div>
               <p className="text-[10px] text-charcoal-light/75 mt-[6px] italic">All time enquiries</p>
@@ -403,10 +403,10 @@ const AdminDashboard = () => {
             </div>
 
             {/* Pending */}
-            <div className="bg-white rounded-xl shadow-sm border border-gold/10 border-l-[3px] border-l-amber-500 py-[14px] px-[16px] flex flex-col justify-between">
+            <div className="bg-white rounded-xl shadow-sm border border-gold/10 border-l-[3px] border-l-amber-500 py-3 px-3.5 sm:py-[14px] sm:px-[16px] flex flex-col justify-between">
               <span className="text-xs font-bold text-charcoal-light uppercase tracking-wider">Pending</span>
               <div className="flex items-baseline gap-2 mt-[4px]">
-                <span className="text-[28px] font-medium text-amber-600 font-display leading-tight">{pendingCount}</span>
+                <span className="text-2xl sm:text-[28px] font-medium text-amber-600 font-display leading-tight">{pendingCount}</span>
                 <span className="text-xs text-charcoal-light">new</span>
               </div>
               <p className="text-[10px] text-amber-700/80 mt-[6px] italic font-medium">Needs Follow-up</p>
@@ -416,10 +416,10 @@ const AdminDashboard = () => {
             </div>
 
             {/* Contacted */}
-            <div className="bg-white rounded-xl shadow-sm border border-gold/10 border-l-[3px] border-l-blue-500 py-[14px] px-[16px] flex flex-col justify-between">
+            <div className="bg-white rounded-xl shadow-sm border border-gold/10 border-l-[3px] border-l-blue-500 py-3 px-3.5 sm:py-[14px] sm:px-[16px] flex flex-col justify-between">
               <span className="text-xs font-bold text-charcoal-light uppercase tracking-wider">Contacted</span>
               <div className="flex items-baseline gap-2 mt-[4px]">
-                <span className="text-[28px] font-medium text-blue-600 font-display leading-tight">{contactedCount}</span>
+                <span className="text-2xl sm:text-[28px] font-medium text-blue-600 font-display leading-tight">{contactedCount}</span>
                 <span className="text-xs text-charcoal-light">replied</span>
               </div>
               <p className="text-[10px] text-blue-700/80 mt-[6px] italic font-medium">Waiting for Confirmation</p>
@@ -429,10 +429,10 @@ const AdminDashboard = () => {
             </div>
 
             {/* Confirmed */}
-            <div className="bg-white rounded-xl shadow-sm border border-gold/10 border-l-[3px] border-l-purple-500 py-[14px] px-[16px] flex flex-col justify-between">
+            <div className="bg-white rounded-xl shadow-sm border border-gold/10 border-l-[3px] border-l-purple-500 py-3 px-3.5 sm:py-[14px] sm:px-[16px] flex flex-col justify-between">
               <span className="text-xs font-bold text-charcoal-light uppercase tracking-wider">Confirmed</span>
               <div className="flex items-baseline gap-2 mt-[4px]">
-                <span className="text-[28px] font-medium text-purple-600 font-display leading-tight">{confirmedCount}</span>
+                <span className="text-2xl sm:text-[28px] font-medium text-purple-600 font-display leading-tight">{confirmedCount}</span>
                 <span className="text-xs text-charcoal-light">booked</span>
               </div>
               <p className="text-[10px] text-purple-700/80 mt-[6px] italic font-medium">Upcoming Booking</p>
@@ -442,10 +442,10 @@ const AdminDashboard = () => {
             </div>
 
             {/* Completed */}
-            <div className="bg-white rounded-xl shadow-sm border border-gold/10 border-l-[3px] border-l-emerald-500 py-[14px] px-[16px] flex flex-col justify-between col-span-2 md:col-span-1">
+            <div className="bg-white rounded-xl shadow-sm border border-gold/10 border-l-[3px] border-l-emerald-500 py-3 px-3.5 sm:py-[14px] sm:px-[16px] flex flex-col justify-between col-span-2 md:col-span-1">
               <span className="text-xs font-bold text-charcoal-light uppercase tracking-wider">Completed</span>
               <div className="flex items-baseline gap-2 mt-[4px]">
-                <span className="text-[28px] font-medium text-emerald-600 font-display leading-tight">{completedCount}</span>
+                <span className="text-2xl sm:text-[28px] font-medium text-emerald-600 font-display leading-tight">{completedCount}</span>
                 <span className="text-xs text-charcoal-light">done</span>
               </div>
               <p className="text-[10px] text-emerald-700/80 mt-[6px] italic font-medium">Service Finished</p>
@@ -901,7 +901,7 @@ const AdminDashboard = () => {
                       <div 
                         key={inq.id}
                         onClick={() => setSelectedInquiry(inq)}
-                        className={`p-5 hover:bg-ivory/20 active:bg-ivory/30 transition-colors cursor-pointer relative ${isSelected ? 'bg-gold/5' : ''}`}
+                        className={`p-4 sm:p-5 hover:bg-ivory/20 active:bg-ivory/30 transition-colors cursor-pointer relative ${isSelected ? 'bg-gold/5' : ''}`}
                       >
                         <div className="flex items-start justify-between gap-4 mb-2">
                           <div className="flex items-center gap-3">
@@ -933,7 +933,7 @@ const AdminDashboard = () => {
                           </span>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-2 mt-3.5 mb-4 text-xs text-charcoal pl-6">
+                        <div className="grid grid-cols-2 gap-x-2 gap-y-3 mt-3.5 mb-4 text-xs text-charcoal pl-1 sm:pl-6">
                           <div>
                             <span className="text-[10px] text-charcoal-light block uppercase font-bold tracking-wider">Event Date:</span>
                             <span className="font-semibold">{inq.eventDate ? formatDateStr(inq.eventDate) : 'N/A'}</span>
@@ -954,7 +954,7 @@ const AdminDashboard = () => {
 
                         {/* Quick actions row */}
                         <div 
-                          className="mt-4 flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-dashed border-gold/10 pl-6"
+                          className="mt-4 flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-dashed border-gold/10 pl-1 sm:pl-6"
                           onClick={(e) => e.stopPropagation()}
                         >
                           <div className="flex items-center gap-2">
@@ -1042,7 +1042,7 @@ const AdminDashboard = () => {
           >
             
             {/* Modal Header */}
-            <div className="bg-burgundy text-white p-5 flex items-center justify-between border-b border-gold/20">
+            <div className="bg-burgundy text-white p-4 sm:p-5 flex items-center justify-between border-b border-gold/20">
               <div className="flex items-center gap-2">
                 <FileText className="w-5 h-5 text-gold" />
                 <h3 className="font-display text-lg font-bold text-gold tracking-wide">
@@ -1059,7 +1059,7 @@ const AdminDashboard = () => {
             </div>
 
             {/* Modal Body */}
-            <div className="p-6 overflow-y-auto space-y-6 flex-1 text-sm text-charcoal">
+            <div className="p-4 sm:p-6 overflow-y-auto space-y-6 flex-1 text-sm text-charcoal">
               
               {/* Customer summary block */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4.5 bg-ivory/30 rounded-xl border border-gold/10">
@@ -1216,7 +1216,7 @@ const AdminDashboard = () => {
             </div>
 
             {/* Modal Footer & Quick Actions */}
-            <div className="p-5 bg-ivory/10 border-t border-gold/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="p-4 sm:p-5 bg-ivory/10 border-t border-gold/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               
               {/* Quick Contact Actions */}
               <div className="flex items-center gap-2">
