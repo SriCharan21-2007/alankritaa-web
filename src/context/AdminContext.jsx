@@ -60,88 +60,9 @@ export const AdminProvider = ({ children }) => {
     }
 
     function loadMockInquiries() {
-      const stored = localStorage.getItem('mock_inquiries_v3');
-      if (stored) {
-        setInquiries(JSON.parse(stored));
-      } else {
-        const todayMs = Date.now();
-        const twoDays = 3600000 * 24 * 2;
-        const fourDays = 3600000 * 24 * 4;
-        const nineDays = 3600000 * 24 * 9;
-        const twelveDays = 3600000 * 24 * 12;
-        const twentyDays = 3600000 * 24 * 20;
-
-        const defaultInquiries = [
-          {
-            id: 'mock-1',
-            name: 'Kajal Aggarwal',
-            phone: '9848022338',
-            eventDate: new Date(todayMs + twoDays).toISOString().split('T')[0],
-            serviceType: 'Bridal Mehendi',
-            message: 'Need dynamic figure drawings including bride and groom faces up to elbows. Please let me know pricing details.',
-            submittedAt: new Date(todayMs - 3600000 * 24).toISOString(),
-            status: 'Pending',
-            notes: 'Spoke with her mother. Prefers traditional patterns on the palm and modern on the forearm.'
-          },
-          {
-            id: 'mock-2',
-            name: 'Samantha Ruth',
-            phone: '9123456789',
-            eventDate: new Date(todayMs + nineDays).toISOString().split('T')[0],
-            serviceType: 'Bridal Saree Draping',
-            message: 'Need saree draping in traditional Nivi style for my wedding. Looking forward to booking.',
-            submittedAt: new Date(todayMs - 3600000 * 6).toISOString(),
-            status: 'Contacted',
-            notes: 'Advance payment of Rs. 500 received. Trial session requested for October.'
-          },
-          {
-            id: 'mock-3',
-            name: 'Deepika Padukone',
-            phone: '9550123456',
-            eventDate: new Date(todayMs).toISOString().split('T')[0],
-            serviceType: 'Bridal Mehendi',
-            message: 'Looking for a heavy Rajasthani pattern for my wedding ceremony today.',
-            submittedAt: new Date(todayMs - 3600000 * 2).toISOString(),
-            status: 'Confirmed',
-            notes: 'Confirmed for 10:00 AM session. Deposit paid in full.'
-          },
-          {
-            id: 'mock-4',
-            name: 'Alia Bhatt',
-            phone: '9876543210',
-            eventDate: new Date(todayMs + fourDays).toISOString().split('T')[0],
-            serviceType: 'Function Saree Draping',
-            message: 'Need saree draping services for 5 family members on my reception.',
-            submittedAt: new Date(todayMs - 3600000 * 12).toISOString(),
-            status: 'Contacted',
-            notes: 'Quoted Rs. 4,500 total. Customer will confirm tomorrow.'
-          },
-          {
-            id: 'mock-5',
-            name: 'Kiara Advani',
-            phone: '9988776655',
-            eventDate: new Date(todayMs + twelveDays).toISOString().split('T')[0],
-            serviceType: 'Arabic Mehendi',
-            message: 'Need simple Arabic floral patterns for my engagement party.',
-            submittedAt: new Date(todayMs - 3600000 * 18).toISOString(),
-            status: 'Confirmed',
-            notes: 'Confirmed booking. Assigned Priya Sharma as the artist.'
-          },
-          {
-            id: 'mock-6',
-            name: 'Katrina Kaif',
-            phone: '9100998877',
-            eventDate: new Date(todayMs + twentyDays).toISOString().split('T')[0],
-            serviceType: 'Bridal Mehendi',
-            message: 'Enquiring about Bridal Mehendi package availability and rates.',
-            submittedAt: new Date(todayMs - 3600000 * 36).toISOString(),
-            status: 'Pending',
-            notes: 'Sent brochure via WhatsApp.'
-          }
-        ];
-        localStorage.setItem('mock_inquiries_v3', JSON.stringify(defaultInquiries));
-        setInquiries(defaultInquiries);
-      }
+      localStorage.removeItem('mock_inquiries_v3');
+      const defaultInquiries = [];
+      setInquiries(defaultInquiries);
       setInquiriesLoading(false);
     }
 

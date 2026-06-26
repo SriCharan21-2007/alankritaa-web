@@ -38,8 +38,8 @@ const AdminDashboard = () => {
   const [showDeleteConfirmId, setShowDeleteConfirmId] = useState(null);
 
   // New arrivals notifications state
-  const [pageLoadTime, setPageLoadTime] = useState(new Date());
   const [newArrivalsCount, setNewArrivalsCount] = useState(0);
+  const [isBannerDismissed, setIsBannerDismissed] = useState(false);
 
   // Notes state inside modal
   const [modalNotes, setModalNotes] = useState('');
@@ -63,14 +63,17 @@ const AdminDashboard = () => {
     }
   }, [selectedInquiry, inquiries]);
 
-  // Listen to new enquiries count since pageLoadTime
+  // Listen to new enquiries count (counts all Pending/new unhandled inquiries)
   useEffect(() => {
     const newCount = inquiries.filter(inq => {
-      const submittedDate = new Date(inq.submittedAt);
-      return submittedDate > pageLoadTime && inq.status === 'Pending';
+      const status = inq.status || 'Pending';
+      return status === 'Pending' || status === 'new';
     }).length;
     setNewArrivalsCount(newCount);
-  }, [inquiries, pageLoadTime]);
+    if (newCount === 0) {
+      setIsBannerDismissed(false);
+    }
+  }, [inquiries]);
 
   if (!isAuthenticated) {
     return null;
@@ -316,14 +319,6 @@ const AdminDashboard = () => {
           
           <div className="flex items-center gap-4">
             <button
-              onClick={simulateIncomingEnquiry}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 bg-gold/10 hover:bg-gold/20 text-gold hover:text-white rounded-md text-xs font-semibold tracking-wide border border-gold/30 transition-all duration-200 cursor-pointer"
-              title="Simulates a new customer inquiry form submission"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              ⚡ Test New Enquiry
-            </button>
-            <button
               onClick={logout}
               className="flex items-center gap-1.5 px-3.5 py-2 bg-rose-950/40 hover:bg-rose-950 text-rose-200 hover:text-white rounded-lg text-xs font-semibold tracking-wide border border-rose-900/40 hover:border-rose-700/50 transition-all duration-200 cursor-pointer"
             >
@@ -357,34 +352,25 @@ const AdminDashboard = () => {
           </div>
 
           {/* Real-time notification banner */}
-          {newArrivalsCount > 0 && (
+          {newArrivalsCount > 0 && !isBannerDismissed && (
             <div className="bg-gold/15 border-2 border-gold text-burgundy px-4 py-3.5 rounded-xl mb-[18px] flex items-center justify-between animate-fadeIn shadow-md">
               <div className="flex items-center gap-2.5 font-bold text-sm">
                 <span className="animate-bounce">🔔</span>
                 <span>New Enquiry ({newArrivalsCount})</span>
-                <span className="text-xs font-medium text-charcoal-light bg-gold/25 px-2 py-0.5 rounded-full">Updates live</span>
+                <span className="text-xs font-medium text-charcoal-light bg-gold/25 px-2 py-0.5 rounded-full">Action required</span>
               </div>
               <button 
                 onClick={() => {
-                  setPageLoadTime(new Date());
+                  setIsBannerDismissed(true);
                 }}
                 className="text-xs bg-burgundy hover:bg-burgundy-dark text-white px-3 py-1.5 rounded-lg font-bold tracking-wide transition-colors cursor-pointer shadow-sm"
               >
-                Mark as Read
+                Dismiss
               </button>
             </div>
           )}
 
-          {/* Mobile Test New Enquiry Trigger */}
-          <div className="sm:hidden mb-6 flex justify-end">
-            <button
-              onClick={simulateIncomingEnquiry}
-              className="flex items-center gap-1.5 px-3 py-2 bg-gold text-burgundy rounded-lg text-xs font-bold shadow-md cursor-pointer"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              ⚡ Test Enquiry
-            </button>
-          </div>
+
 
           {/* Stats Grid */}
           <section className="grid grid-cols-2 md:grid-cols-5 gap-[10px] mb-[18px]">
