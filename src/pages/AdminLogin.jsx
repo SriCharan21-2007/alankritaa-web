@@ -43,7 +43,7 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-ivory/30 flex items-center justify-center px-4 py-12 relative overflow-hidden font-sans">
+    <div className="min-h-screen bg-ivory/30 flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden font-sans">
       {/* Background Decorative Blobs */}
       <div className="absolute top-[-10%] right-[-10%] w-[30rem] h-[30rem] rounded-full bg-gold/5 blur-3xl pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-[30rem] h-[30rem] rounded-full bg-burgundy/5 blur-3xl pointer-events-none" />
@@ -148,6 +148,16 @@ const AdminLogin = () => {
           </div>
         </div>
 
+      </div>
+
+      {/* Demo Credentials text below the sign-in box */}
+      <div className="mt-6 text-center text-xs text-charcoal/70 relative z-10 bg-white/40 backdrop-blur-sm px-4 py-2.5 rounded-lg border border-gold/10 shadow-sm">
+        <span className="font-bold text-burgundy uppercase tracking-wider text-[10px] block mb-1">Demo Credentials</span>
+        <span className="font-semibold text-charcoal-light">Email: </span>
+        <span className="font-mono font-bold text-charcoal select-all">admin@alankrita.com</span>
+        <span className="mx-3 text-gold/50">|</span>
+        <span className="font-semibold text-charcoal-light">Password: </span>
+        <span className="font-mono font-bold text-charcoal select-all">admin123</span>
       </div>
     </div>
   );
